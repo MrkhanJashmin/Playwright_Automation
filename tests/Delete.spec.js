@@ -1,6 +1,7 @@
 import { chromium } from 'playwright';
 import { test, expect } from '@playwright/test';
 
+//init commit
 test('test in headed mode', async ({ }) => {
   const browser = await chromium.launch({ headless: false });
   const context = await browser.newContext();
