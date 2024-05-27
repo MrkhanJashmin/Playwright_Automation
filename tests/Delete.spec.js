@@ -19,7 +19,10 @@ test('test in headed mode', async ({ }) => {
   await page.getByRole('button', { name: 'analytics' }).press('ArrowDown');
   await page.getByRole('button', { name: 'analytics' },{ timeout: 60000 }).press('ArrowDown');
   await page.getByRole('button', { name: 'File Manager' },{ timeout: 60000 }).click();
-  await page.getByRole('row', { name: 'Docs 2.24 Gb folder 25 May' },{ timeout: 60000 }).getByRole('checkbox').first().check();
+
+  await page.reload();
+  await page.waitForTimeout(2000);
+  await page.getByRole('row', { name: 'Docs 2.24 Gb folder 27 May' }).getByRole('checkbox').first().check();
   await page.getByLabel('Delete',{ timeout: 60000 }).click();
   await page.getByRole('button', { name: 'Delete' },{ timeout: 60000 }).click();
   await page.getByText('Delete success!').click();
